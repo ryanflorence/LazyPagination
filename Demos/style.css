@@ -1,0 +1,49 @@
+/* @group global */
+
+body {
+	font-family: Helvetica, arial;
+	background: #fff;
+}
+
+a#avatar {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+
+a#avatar img {
+	border: none;
+}
+
+h1 {
+	color: #0094d5;
+}
+
+h2 {
+	color: #43aa38;
+}
+
+a {
+	color: #0094d5;
+}
+
+a:visited, a:hover {
+	color: #00577e;
+}
+
+
+/* @end */
+
+div.page {
+	height: 300px;
+	background: #000;
+	border: solid 5px #585858;
+	margin: 20px;
+}
+
+div.page p {
+	font-size: 50px;
+	line-height: 150px;
+	color: #0094d5;
+	text-align: center;
+}
