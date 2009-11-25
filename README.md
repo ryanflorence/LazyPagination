@@ -5,8 +5,6 @@ Automatically sends ajax requests as the user scrolls an element.
 
 ### Example
 
-### Example
-
 Set it up just like you would any other pagination on the server.  This example is totally simplified.
 
 #### HTML/PHP Front-page
