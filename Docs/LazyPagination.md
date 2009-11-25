@@ -5,7 +5,7 @@ Class: LazyPagination {#LazyPagination}
 
 ### Demo:
 
-<iframe src="http://ryanflorence.com/scripts/mootools/LazyPagination/Demos/" style="width: 100%; height:500px" style="border-top: solid 1px #999"></iframe>
+<iframe src="http://ryanflorence.com/scripts/mootools/LazyPagination/Demos/" style="width: 100%; height:500px; border: solid 1px #999"></iframe>
 
 ### Extends:
 
