@@ -1,7 +1,7 @@
 Class: LazyPagination {#LazyPagination}
 =======================================
 
-<big>Automatically sends ajax requests as the user scrolls an element.</big>
+<big>Automatically sends ajax requests as the user scrolls an element. Provides options to control where the response is injected into the DOM (usually above a footer).</big>
 
 ### Demo:
 
