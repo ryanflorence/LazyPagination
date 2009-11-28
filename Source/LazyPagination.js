@@ -1,3 +1,27 @@
+/*
+---
+
+script: LazyPagination.js
+
+description: Automatically sends ajax requests as the user scrolls an element.
+
+license: MIT-style license.
+
+authors: Ryan Florence <http://ryanflorence.com>
+
+docs: http://moodocs.net/rpflo/mootools-rpflo/LazyPagination
+
+requires:
+- /Request.HTML
+- /Element
+
+provides: [LazyPagination]
+
+...
+*/
+
+
+
 var LazyPagination = new Class({
 	
 	Extends: Request.HTML,
@@ -5,7 +29,9 @@ var LazyPagination = new Class({
 		options: {
 			buffer: 1000,
 			maxRequests: 5,
-			data: { 'page': 2 }
+			data: { 'page': 2 },
+			navigation: false,
+			inject: false // {element: 'foo', where: 'before'}
 		},
 
 	initialize: function(element,options){
@@ -14,12 +40,13 @@ var LazyPagination = new Class({
 		this.bound = this.measure.bind(this);
 		this.requests = 0;
 		
-		this.addEvent('onComplete',function(response,html,htmlString){
-			(this.element === document || this.element === window) ? 
-				$(document.body).adopt(html[0]) : this.element.adopt(html[0]);
+		this.addEvent('onComplete',function(response,html){
+			(this.options.inject) ? this.inject(html[0]) : this.adopt(html[0]);
 			this.increment();
 			this.measure();
 		});
+		
+		if(this.options.navigation) document.id(this.options.navigation).destroy();
 		
 		this.attach();
 		this.measure();
@@ -52,6 +79,17 @@ var LazyPagination = new Class({
 	detach: function(){
 		window.removeEvent('resize',this.bound);
 		this.element.removeEvent('scroll',this.bound);
+		return this;
+	},
+	
+	adopt: function(html){
+		(this.element === document || this.element === window) ? 
+			$(document.body).adopt(html) : this.element.adopt(html);
+		return this;
+	},
+	
+	inject: function(html){
+		html.inject(this.options.inject.element, this.options.inject.where);
 		return this;
 	}
 

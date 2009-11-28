@@ -16,13 +16,18 @@
 	<h1>Scrolling down should make <br/>
 		20 xhr requests to "Page 21"</h1>
 		
+	<div id="page_navigation">
+		<?php for($x = 1; $x < 21; $x++){ ?>
+			<a href="?page=<?php echo $x ?>"><?php echo $x ?></a>
+		<?php } ?>
+	</div>
+	
 	<?php include '_page.php'; ?>
-	
-	<p>
-		<a href="http://moodocs.net/rpflo/mootools-rpflo/LazyPagination">LazyPagination @ moodocs.net</a><br/>
-		<a href="http://github.com/rpflorence/LazyPagination">LazyPagination @ github</a>
-		<a href="http://ryanflorence.com" id="avatar"><img src="avatar.png" /></a>
+
+	<p id="links">
+		LazyPagination
+		<a href="http://moodocs.net/rpflo/mootools-rpflo/LazyPagination">@moodocs.net</a> | 
+		<a href="http://github.com/rpflorence/LazyPagination">@github</a>
 	</p>
-	
 </body>
 </html>

@@ -3,6 +3,11 @@ window.addEvent('domready',function(){
 		url: '_page.php',
 		method: 'get',
 		maxRequests: 20,
-		buffer: 1000
+		buffer: 1000,
+		navigation: 'page_navigation',
+		inject: {
+			element: 'links',
+			where: 'before'
+		}
 	});
 });

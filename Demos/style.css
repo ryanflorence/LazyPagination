@@ -5,6 +5,11 @@ body {
 	background: #fff;
 }
 
+p#links {
+	padding-top: 50px;
+	clear: both;
+}
+
 a#avatar {
 	position: absolute;
 	bottom: 10px;
@@ -39,6 +44,7 @@ div.page {
 	background: #000;
 	border: solid 5px #585858;
 	margin: 20px;
+	position: relative;
 }
 
 div.page p {

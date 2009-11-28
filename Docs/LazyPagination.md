@@ -19,9 +19,11 @@ Set it up just like you would any other pagination on the server.  This example 
 #### HTML/PHP Front-page
 
     <body>
-    
+      <div id="navigation"> <!-- fallback navigation --> </div>
+      
     	<?php include '_page.php'; ?>
     	
+    	<div id="footer">Blah blah blah</div>
     </body>
 
 #### HTML/PHP Requested partial
@@ -38,7 +40,12 @@ You would do something on the server to deliver the next page.
     	url: '_page.php',
     	method: 'get',
     	maxRequests: 20,
-    	buffer: 1000
+    	buffer: 1000,
+    	navigation: 'navigation', // will destroy this if javascript is enabled
+    	inject: {
+    		element: 'footer',
+    		where: 'before' // will inject pages above the footer
+    	}
     });
 
 LazyPagination Method: constructor {#LazyPagination:constructor}
@@ -58,6 +65,7 @@ LazyPagination Method: constructor {#LazyPagination:constructor}
 
 * buffer - (number: defaults to 1000) The number of pixels from the bottom of the element to trigger loading of the next page.
 * maxRequests - (number: defaults to 5) The maximum number of requests to be sent (usually the number of pages in your pagination minus one.)
+* inject (object: defaults to false) The arguments to pass to `element.inject`, accepts `element` and `where` values.  i.e. `inject: {element: 'footer', where: 'before'}`
 
 ### Events:
 
