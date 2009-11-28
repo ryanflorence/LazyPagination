@@ -3,7 +3,8 @@ LazyPagination
 
 Automatically sends ajax requests as the user scrolls an element. Provides options to control where the response is injected into the DOM (usually above a footer).
 
-### Example
+How to use
+----------
 
 Set it up just like you would any other pagination on the server.  This example is totally simplified.
 
