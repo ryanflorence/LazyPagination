@@ -10,6 +10,7 @@ Set it up just like you would any other pagination on the server.  This example 
 
 #### HTML/PHP Front-page
 
+    #HTML
     <body>
       <div id="navigation"> <!-- fallback navigation --> </div>
       
@@ -22,12 +23,14 @@ Set it up just like you would any other pagination on the server.  This example 
 
 You would do something on the server to deliver the next page.
 
+    #HTML
     <div class="page">
     	<p>I am a page <?php echo $_GET['page']; ?></p>
     </div>
     
 #### JavaScript
 
+    #JS
     var lazy = new LazyPagination(document,{
     	url: '_page.php',
     	method: 'get',

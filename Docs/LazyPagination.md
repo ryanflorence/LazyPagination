@@ -11,7 +11,6 @@ Class: LazyPagination {#LazyPagination}
 
 [Request.HTML][request]
 
-
 ### Example
 
 Set it up just like you would any other pagination on the server.  This example is totally simplified.
@@ -41,7 +40,11 @@ You would do something on the server to deliver the next page.
     	method: 'get',
     	maxRequests: 20,
     	buffer: 1000,
-    	navigation: 'navigation', // will destroy this if javascript is enabled
+  		data: {
+  			page: 2 // the first "next page" to request
+  		},
+    	pageDataIndex: 'page', // variable in `data` that holds the page number to request
+    	navigation: 'navigation', // will destroy `navigation` if javascript is enabled
     	inject: {
     		element: 'footer',
     		where: 'before' // will inject pages above the footer
@@ -64,7 +67,8 @@ LazyPagination Method: constructor {#LazyPagination:constructor}
 ### Options:
 
 * buffer - (number: defaults to 1000) The number of pixels from the bottom of the element to trigger loading of the next page.
-* maxRequests - (number: defaults to 5) The maximum number of requests to be sent (usually the number of pages in your pagination minus one.)
+* maxRequests - (number: defaults to 5) The maximum number of requests to be sent (should be the number of pages in your pagination minus one since you should be showing page one already.)
+* pageDataIndex - (string: defaults to `page`) The index name in your `data` options object that contains the page number to request.
 * inject (object: defaults to false) The arguments to pass to `element.inject`, accepts `element` and `where` values.  i.e. `inject: {element: 'footer', where: 'before'}`
 
 ### Events:
@@ -79,7 +83,7 @@ By default the `data` option is as follows:
 
 * It sends `page=2` for the first request and increments from there, assuming you are already displaying page 1.
 * If you need to send more data than just the page number, don't forget to include `'page': 2` in your data object.
-* If you need to change anything in the data variable after each request, extend the class and alter the `increment` method.
+* If you need to change anything in the data variable after each request, extend the class and alter the `increment` method, or use LazyPagination.implement({ increment: fn });
 
 
 LazyPagination Method: attach {#LazyPagination:attach}

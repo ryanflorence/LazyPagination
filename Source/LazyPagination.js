@@ -29,7 +29,8 @@ var LazyPagination = new Class({
 		options: {
 			buffer: 1000,
 			maxRequests: 5,
-			data: { 'page': 2 },
+			pageDataIndex: 'page',
+			data: { page: 2},
 			navigation: false,
 			inject: false // {element: 'foo', where: 'before'}
 		},
@@ -66,7 +67,7 @@ var LazyPagination = new Class({
 	
 	increment: function(){
 		this.requests++;
-		this.options.data.page++;
+		this.options.data[this.options.pageDataIndex]++;
 		return this;
 	},
 	
