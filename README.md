@@ -1,7 +1,7 @@
 LazyPagination
 ==============
 
-![LazyPagination](Assets/logo.png)
+![LazyPagination](http://github.com/rpflorence/LazyPagination/raw/master/Assets/logo.png)
 
 Automatically sends ajax requests as the user scrolls an element. Provides options to control where the response is injected into the DOM (usually above a footer).
 
