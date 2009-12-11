@@ -12,8 +12,9 @@ authors: Ryan Florence <http://ryanflorence.com>
 docs: http://moodocs.net/rpflo/mootools-rpflo/LazyPagination
 
 requires:
-- /Request.HTML
-- /Element
+requires:
+ core/1.2.4:
+  - Request.HTML
 
 provides: [LazyPagination]
 
