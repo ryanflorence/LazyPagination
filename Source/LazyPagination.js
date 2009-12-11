@@ -7,7 +7,7 @@ description: Automatically sends ajax requests as the user scrolls an element.
 
 license: MIT-style license.
 
-author: Ryan Florence
+author: rpflorence@gmail.com
 
 docs: http://moodocs.net/rpflo/mootools-rpflo/LazyPagination
 
