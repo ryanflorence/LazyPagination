@@ -34,6 +34,7 @@ var LazyPagination = new Class({
 			navigation: false,
 			inject: false // {element: 'foo', where: 'before'}
 		},
+		attached: false,
 
 	initialize: function(element,options){
 		this.parent(options);
@@ -42,6 +43,7 @@ var LazyPagination = new Class({
 		this.requests = 0;
 		
 		this.addEvent('onComplete',function(response,html){
+			if( !this.attached ) return;
 			(this.options.inject) ? this.inject(html[0]) : this.adopt(html[0]);
 			this.increment();
 			this.measure();
@@ -72,12 +74,14 @@ var LazyPagination = new Class({
 	},
 	
 	attach: function(){
+		this.attached = true;
 		window.addEvent('resize',this.bound);
 		this.element.addEvent('scroll',this.bound);
 		return this;
 	},
 	
 	detach: function(){
+		this.attached = false;
 		window.removeEvent('resize',this.bound);
 		this.element.removeEvent('scroll',this.bound);
 		return this;
